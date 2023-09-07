@@ -7,6 +7,7 @@ import (
 	"runtime/debug"
 	"sync"
 
+	"github.com/samaelkorn/generator/internal/template"
 	"github.com/samaelkorn/generator/internal/version"
 
 	"golang.org/x/exp/slog"
@@ -14,6 +15,12 @@ import (
 
 func main() {
 	logger := slog.New(slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelDebug}))
+	errT := template.DownloadTemplate()
+
+	if errT != nil {
+		fmt.Println("test")
+		fmt.Println(errT)
+	}
 
 	err := run(logger)
 	if err != nil {
