@@ -6,8 +6,8 @@ import (
 	"runtime/debug"
 	"strings"
 
-	"admin-generator.com/internal/response"
-	"admin-generator.com/internal/validator"
+	"github.com/samaelkorn/generator/internal/response"
+	"github.com/samaelkorn/generator/internal/validator"
 
 	"golang.org/x/exp/slog"
 )

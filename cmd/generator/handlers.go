@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"admin-generator.com/internal/response"
+	"github.com/samaelkorn/generator/internal/response"
 )
 
 func (app *application) status(w http.ResponseWriter, r *http.Request) {

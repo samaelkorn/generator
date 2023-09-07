@@ -7,7 +7,7 @@ import (
 	"runtime/debug"
 	"sync"
 
-	"admin-generator.com/internal/version"
+	"github.com/samaelkorn/generator/internal/version"
 
 	"golang.org/x/exp/slog"
 )

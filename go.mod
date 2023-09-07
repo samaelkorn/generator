@@ -1,4 +1,4 @@
-module admin-generator.com
+module github.com/samaelkorn/generator
 
 go 1.19
 
