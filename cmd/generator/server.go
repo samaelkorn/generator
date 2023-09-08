@@ -4,12 +4,14 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"golang.org/x/exp/slog"
 	"net/http"
 	"os"
+	"os/exec"
 	"os/signal"
 	"syscall"
 	"time"
+
+	"golang.org/x/exp/slog"
 )
 
 const (
@@ -43,6 +45,8 @@ func (app *application) serveHTTP() error {
 	}()
 
 	app.logger.Info("starting server", slog.Group("server", "addr", srv.Addr))
+	cmd := exec.Command("open", "http://localhost:666")
+	cmd.Run()
 
 	err := srv.ListenAndServe()
 	if !errors.Is(err, http.ErrServerClosed) {

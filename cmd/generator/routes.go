@@ -18,18 +18,13 @@ func (app *application) routes() http.Handler {
 	mux.Use(app.recoverPanic)
 
 	mux.Get("/status", app.status)
-
-	// Create a route along /files that will serve contents from
-	// the ./data/ folder.
 	workDir, _ := os.Getwd()
-	filesDir := http.Dir(filepath.Join(workDir, "web/dist"))
+	filesDir := http.Dir(filepath.Join(workDir, "generator/dist"))
 	FileServer(mux, "/", filesDir)
 
 	return mux
 }
 
-// FileServer conveniently sets up a http.FileServer handler to serve
-// static files from a http.FileSystem.
 func FileServer(r chi.Router, path string, root http.FileSystem) {
 	if strings.ContainsAny(path, "{}*") {
 		panic("FileServer does not permit any URL parameters.")
